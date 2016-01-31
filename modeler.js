@@ -18,7 +18,17 @@ var CCC = function() {
     function sendMessage() {
         window.parent.postMessage("modeler-closed", "*");
     }
-
+    
+    function initSaveAndClose(){
+        var id = SaveModelCtrl.length -1;
+        var saveAndClose = SaveModelCtrl[id].toString();
+        var exp = /{([^{].*window.location.href[^}]*)}/g;
+        saveAndClose = saveAndClose.replace(exp, "{CCC.sendMessage()}");
+        saveAndClose = "var tempFunction = " + saveAndClose;
+        eval(saveAndClose);
+        SaveModelCtrl[id] = tempFunction;
+    }
+    
     function init() {
         /*
          * this doesn't work every time, 
@@ -27,6 +37,7 @@ var CCC = function() {
         window.addEventListener("beforeunload", sendMessage, false);
 
         KISBPM.TOOLBAR.ACTIONS.closeEditor = sendMessage;
+        initSaveAndClose();
     }
 }();
 CCC.autoLogin();
