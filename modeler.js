@@ -1,6 +1,6 @@
 var CCC = function() {
-		return {
-    	 init: init,
+     return {
+       init: init,
        autoLogin: autoLogin,
        sendMessage: sendMessage
     }
