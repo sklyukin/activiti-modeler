@@ -16,7 +16,7 @@ var CCC = function() {
     }
 
     function sendMessage() {
-        window.parent.postMessage("modeler-closed", "*");
+        window.parent.postMessage("modeler-close", "*");
     }
     
     function initSaveAndClose(){
