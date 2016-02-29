@@ -1,6 +1,5 @@
 # activiti-modeler
 
-Files: 
+Files to copy: 
 * modeler.html
-* modeler.js
-* modeler.css
+* editor-app folder (2 files)
